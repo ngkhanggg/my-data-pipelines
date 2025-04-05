@@ -1,0 +1,70 @@
+{
+    "table_metadata": {
+        "table_name": "table_metadata",
+        "sheet_name": "DataMapping",
+        "skiprows": 1,
+
+        "mapping": {
+            "Description": "The column names in the ingestion template file must be exactly the same as the keys defined here.",
+
+            "SourceSystem": {
+                "name": "source_system",
+                "data_type": "text",
+                "order": 1,
+                "not_null": true,
+                "scd_decider": true
+            },
+            "TableName": {
+                "name": "table_name",
+                "data_type": "text",
+                "order": 2,
+                "not_null": true,
+                "scd_decider": true
+            },
+            "ColumnName": {
+                "name": "column_name",
+                "data_type": "text",
+                "order": 3,
+                "not_null": true,
+                "scd_decider": true
+            },
+            "DataType": {
+                "name": "data_type",
+                "data_type": "text",
+                "order": 4
+            },
+            "DataLength": {
+                "name": "data_length",
+                "data_type": "text",
+                "order": 5
+            },
+            "IsPrimaryKey": {
+                "name": "is_primary_key",
+                "data_type": "text",
+                "order": 6
+            }
+        },
+        "additional_columns": {
+            "Description": "These are the additional system-generated columns that will be added to the table.",
+
+            "InsertDatetime": {
+                "name": "insert_dttm",
+                "data_type": "timestamp",
+                "default_value": "",
+                "order": 7
+            },
+            "UpdateDatetime": {
+                "name": "update_dttm",
+                "data_type": "timestamp",
+                "default_value": "",
+                "order": 8
+            },
+            "IsCurrent": {
+                "name": "is_current",
+                "data_type": "text",
+                "default_value": "Y",
+                "order": 9
+            }
+        }
+    }
+}
