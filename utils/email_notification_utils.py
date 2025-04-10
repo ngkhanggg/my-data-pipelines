@@ -16,11 +16,16 @@ logger.addHandler(stream_handler)
 
 
 class SNSNotification:
-    def __init__(self, sns_topic_arn):
+    def __init__(self, sns_topic_arn: str):
         self.sns_client = boto3.client('sns')
         self.sns_topic_arn = sns_topic_arn
 
     def send_email(self, subject: str, json_body: json):
+        """
+        Parameters:
+            subject (str): Subject of the email
+            json_body (json): Body of the email in JSON format
+        """
         try:
             json_data = json.dumps(json_body, indent=4, separators=(',', ':'))
 
@@ -41,6 +46,14 @@ class SMTPNotification:
         self.smtp_port: int = smtp_port
 
     def send_email(self, subject: str, body: str, sender: str, recipients: list = [], cc_recipients: list = []):
+        """
+        Parameters:
+            subject (str): Subject of the email
+            body (str): Body of the email
+            sender (str): Sender email address
+            recipients (list): List of recipient email addresses
+            cc_recipients (list): List of cc recipient email addresses
+        """
         try:
             msg = MIMEMultipart()
             msg['From'] = sender
